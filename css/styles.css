@@ -1,8 +1,16 @@
+html {
+    height: 100%;
+}
+
 body {
+    min-height: 100%;
     font-size: 16px;
     font-weight: 400;
     color: #323237;
     font-family: 'Segoe UI', SegoeUI, 'Segoe WP', Tahoma, Arial, sans-serif;
+    background: linear-gradient(to top, #09203f 0%, #537895 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #userSelector,
@@ -19,8 +27,8 @@ button {
 }
 
 #box {
-    width: 200px;
-    height: 200px;
+    width: 256px;
+    height: 192px;
     background-color: lightblue;
     margin-top: 20px;
 }
@@ -36,9 +44,15 @@ button {
 
 .countryButtons a {
     width: 45%;
-    height: 80px;
+    height: auto;
     margin-left: 2px;
     margin-right: 2px;
     font-size: 18px;
     text-align: left;
+}
+
+#apiOutput {
+    color: white;
+    text-align: justify;
+    margin: 0 auto;
 }
