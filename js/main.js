@@ -1,7 +1,11 @@
 window.onload = init;
 
+let responseData;
+
 function init() {
-    document.getElementById("fetchButton").addEventListener("click", fetchData);
+    fetchCountryCodes();
+
+    document.getElementById("fetchFlag").addEventListener("click", fetchFlagApi);
 }
 
 function showUserInfo(user) {
@@ -13,7 +17,7 @@ function showUserInfo(user) {
     document.getElementById('newSection').style.display = 'block';
 }
 
-function fetchData() {
+function fetchCountryCodes() {
     fetch('https://flagcdn.com/es/codes.json')
         .then(response => {
             if (!response.ok) {
@@ -27,12 +31,15 @@ function fetchData() {
             for (var key in data) {
                 if (key.startsWith('gb-') || key.startsWith('us-')) { delete data[key]; }
             }
-            console.log(data);
-            document.getElementById("apiOutput").innerText = JSON.stringify(data, null, 2);
+            responseData = data;
         })
         .catch(error => {
             // Handle errors here
             console.error('There was a problem with the fetch operation:', error);
-            document.getElementById("apiOutput").innerText = 'Error: ' + error.message;
+            console.error('Error: ' + error.message);
         });
+}
+
+function fetchFlagApi() {
+
 }
